@@ -6,46 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title> </title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.1.2/dist/tailwind.min.css" rel="stylesheet"/>
+    <!-- Google Font for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
     <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
         #particles-js {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Ensures the particles are in the background */
+            z-index: -1; /* Keeps particles in the background */
         }
+
         .hero-text {
             color: white;
         }
+
+        /* Modern button style with animations */
         button {
-            font-size: 16px;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
+            font-size: 18px;
+            padding: 14px 28px;
+            border: 2px solid #1e40af;
+            border-radius: 50px;
+            background-color: transparent;
+            color: #1e40af;
+            font-weight: 700;
+            text-transform: uppercase;
             cursor: pointer;
-            background-color: #1e40af;
+            transition: all 0.3s ease;
+            display: inline-block;
+            letter-spacing: 2px;
         }
+
         button:hover {
-            background-color: #1d4ed8;
+            background-color: #1e40af;
+            color: white;
+            transform: scale(1.1); /* Add hover scale effect */
         }
-        a {
+
+        button:focus {
+            outline: none;
+        }
+
+        button a {
             text-decoration: none;
             color: inherit;
         }
+
     </style>
 </head>
-<body class="bg-gray-900">
+<body class="bg-blue-900">
     <!-- Particles.js background -->
     <div id="particles-js"></div>
-    
+
     <div class="relative w-full h-screen">
         <header class="absolute top-0 left-0 w-full flex justify-center items-center p-4 text-lg text-white">
-            <button class="font-bold py-2 px-6 rounded">
-                <a href="https://www.idk" target="_blank">idk</a>
+            <button>
+                <a href="https://www.idk" id="link" target="_blank">Go to Website</a>
             </button>
         </header>
-        
+
         <main class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-5xl font-extrabold text-center hero-text">
             <p>Welcome</p>
         </main>
@@ -65,7 +89,7 @@
                     }
                 },
                 color: {
-                    value: "#ffffff"
+                    value: "#ffffff"  // Particle color
                 },
                 shape: {
                     type: "circle",
@@ -136,8 +160,16 @@
                     }
                 }
             },
-            retina_detect: true
+            retina_detect: true,
+            background: {
+                color: "#1e40af"  // Set background color to blue
+            }
         });
+
+        // Ensuring the button only needs one click to go to the website
+        document.querySelector("button").onclick = function() {
+            window.open("https://www.idk", "_blank");
+        };
     </script>
 </body>
 </html>
