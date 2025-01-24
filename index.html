@@ -4,21 +4,30 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Nature Background</title>
+    <title> </title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.1.2/dist/tailwind.min.css" rel="stylesheet"/>
     <style>
-        .bg-cover {
-            background-image: linear-gradient(to bottom, #3498db, #f4a9b9);
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Ensures the particles are in the background */
+        }
+        .hero-text {
+            color: white;
         }
         button {
             font-size: 16px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
+            background-color: #1e40af;
         }
         button:hover {
-            background-color: #4CAF50;
+            background-color: #1d4ed8;
         }
         a {
             text-decoration: none;
@@ -26,23 +35,109 @@
         }
     </style>
 </head>
-<body>
-    <div class="relative">
-        <div class="absolute top-0 left-0 w-full h-screen bg-cover bg-center" style="background-image:url('https://images.unsplash.com/photo-1518791840256-15d0b1b5efb5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')">
-        </div>
+<body class="bg-gray-900">
+    <!-- Particles.js background -->
+    <div id="particles-js"></div>
+    
+    <div class="relative w-full h-screen">
         <header class="absolute top-0 left-0 w-full flex justify-center items-center p-4 text-lg text-white">
-            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            <button class="font-bold py-2 px-6 rounded">
                 <a href="https://www.idk" target="_blank">idk</a>
             </button>
         </header>
-        <main class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl text-gray-800 text-center">
+        
+        <main class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-5xl font-extrabold text-center hero-text">
             <p>Welcome</p>
-          
         </main>
     </div>
+
+    <!-- Particles.js Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Simplified JavaScript logic
-        console.log('Welcome!');
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#ffffff"
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 4,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    }
+                },
+                modes: {
+                    repulse: {
+                        distance: 100,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
     </script>
 </body>
 </html>
